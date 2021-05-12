@@ -134,6 +134,7 @@ main {
 	#container-principal {
 		width: 100%;
 	}
+	#caixa-de-input-para-busca { margin-top: 0; }
 	#caixa-de-input-para-busca h3 {
 		font-size: 1.55rem;
 		margin: 15px 0;
