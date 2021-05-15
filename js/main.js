@@ -1,3 +1,20 @@
+const usuarioNaoEncontrado = (tipoErro, divRepositorios) => {
+    const divErro = document.createElement('div')
+    divErro.setAttribute('class', 'divs-de-erro')
+    
+    const paragrafoDiv = document.createElement('p')
+    paragrafoDiv.setAttribute('class', 'paragrafo-div-erro')
+
+    paragrafoDiv.innerText = `ERROR ${tipoErro} - User does not exist or input's empty.`
+    divErro.appendChild(paragrafoDiv)
+    divRepositorios.appendChild(divErro)
+}
+
+const tratamentoDeErros = (tipoErro, divRepositorios) => {
+    if (tipoErro === 404) 
+        usuarioNaoEncontrado(tipoErro, divRepositorios)
+}
+
 const definirCor = (listaCores, corLingRepo) => {
     let corEscolhida
     for (let cor in listaCores) {
@@ -112,6 +129,12 @@ const buscarDadosProgramador = () => {
     axios.get(`https://api.github.com/users/${usuarioDigitado}/repos?&per_page=50`)
     .then((sucesso) => {
         mostrarRepositorios(sucesso.data)
+    })
+    .catch((error) => {
+        tratamentoDeErros(
+            error.response.status, 
+            divRepositorios
+        )
     })
 
     inputPesquisa.value = ''
