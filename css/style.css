@@ -171,6 +171,12 @@ main {
 	border: 2px solid #ff9e9e;
 	box-shadow: 10px 5px 5px #b2ddff;
 	font-weight: bold;
+	animation: slide .15s linear forwards;
+}
+
+@keyframes slide{
+	50% { transform: translateX(-15px); opacity: .5; }
+	100% { transform: translateX(0px); opacity: 1; }
 }
 
 .paragrafo-div-erro {
