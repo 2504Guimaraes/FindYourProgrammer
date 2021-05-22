@@ -189,6 +189,7 @@ main {
 	#container-principal {
 		width: 100%;
 	}
+	#caixa-para-dicas { margin-top: 0; }
 	#caixa-de-input-para-busca { margin-top: 10px; }
 	#caixa-de-input-para-busca h3 {
 		font-size: 1.55rem;
